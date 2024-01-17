@@ -7,6 +7,7 @@
 - [Biome](https://biomejs.dev/)
 - [chalk](https://github.com/chalk/chalk)
 - [Next.js](https://nextjs.org/)
+- [@redocly/openapi-core](https://github.com/Redocly/redocly-cli/tree/main/packages/core)
 
 ## cac でコマンドラインから引数を受け取る
 
