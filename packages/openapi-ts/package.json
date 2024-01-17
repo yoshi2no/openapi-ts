@@ -2,20 +2,24 @@
   "name": "openapi-typescript",
   "version": "0.0.0",
   "description": "",
-  "bin": {
-    "openapi-ts": "bin/cli.js"
+  "scripts": {
+    "format": "biome format --write ./",
+    "build": "tsup --watch",
+    "type-check": "tsc --noEmit"
   },
+  "bin": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./*": "./*"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
   },
   "author": "",
   "license": "MIT",
@@ -23,6 +27,7 @@
     "cac": "^6.7.14"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.2",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.1"
   }
