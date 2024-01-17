@@ -2,9 +2,10 @@
 
 ## 使用するツールとその紹介
 
-- cac
-- tsup
+- [cac](https://github.com/cacjs/cac)
+- [tsup](https://github.com/egoist/tsup)
+- [Biome](https://biomejs.dev/)
 
-## yargs でコマンドラインから引数を受け取る
+## cac でコマンドラインから引数を受け取る
 
 [cac](https://github.com/cacjs/cac)を使用します

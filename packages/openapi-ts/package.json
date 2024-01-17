@@ -26,6 +26,7 @@
     "cac": "^6.7.14"
   },
   "devDependencies": {
+    "@types/node": "^20.11.5",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.1"
   }
