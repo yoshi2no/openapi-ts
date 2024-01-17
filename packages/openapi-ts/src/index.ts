@@ -6,11 +6,10 @@ import { PACKAGE_NAME } from './const/app.js';
 const cli = cac(`${PACKAGE_NAME}`);
 
 cli
-  .command('', `There are no subcommands. Simply execute ${PACKAGE_NAME}`)
+  .command('<file>', "Path to your OpenAPI file")
   .option('-o, --output <file>', 'Path to your type file')
-  .action((options) => {
-    console.log(options, "options")
-    execute();
+  .action((file, options) => {
+    execute(file, options);
   });
 
 cli.help();
