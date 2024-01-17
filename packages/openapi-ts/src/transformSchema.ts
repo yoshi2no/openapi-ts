@@ -1,7 +1,8 @@
 import fs from "node:fs";
-import { getCtx } from "./ctx";
+import type { Ctx } from "./type";
 
-export const transformSchema = (): boolean => {
-	const input = fs.readFileSync(getCtx().pathToSchema, "utf8");
+export const transformSchema = (ctx: Ctx): boolean => {
+	const input = fs.readFileSync(ctx.pathToSchema, "utf8");
+
 	return true;
 };

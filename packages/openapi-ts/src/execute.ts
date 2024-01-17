@@ -21,7 +21,7 @@ export const execute = (file: string, options: any) => {
 	const isValid = lintSchema(ctx);
 
 	// TODO: 実際に処理する
-	const isSuccess = transformSchema();
+	const isSuccess = transformSchema(ctx);
 
 	// TODO: 結果を表示する
 	printResult(isSuccess);
