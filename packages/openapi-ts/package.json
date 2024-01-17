@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "format": "biome format --write ./",
     "build": "tsup --watch",
     "type-check": "tsc --noEmit"
   },
@@ -27,7 +26,6 @@
     "cac": "^6.7.14"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.2",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.1"
   }

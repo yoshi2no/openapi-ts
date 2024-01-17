@@ -3,5 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {}
+  "scripts": {
+    "format": "biome format --write ./packages"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.2"
+  }
 }
