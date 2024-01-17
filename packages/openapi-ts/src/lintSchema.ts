@@ -10,8 +10,6 @@ export const lintSchema = async (ctx: Ctx): Promise<boolean> => {
 		},
 	});
 	const lintResults = await lint({ ref: ctx.pathToSchema.pathname, config });
-	console.log(lintResults, "lintResults");
-
 	const isNoError =
 		lintResults.length === 0 ||
 		lintResults.every((issue) => issue.severity !== "error");
