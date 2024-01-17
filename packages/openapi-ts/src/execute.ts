@@ -1,17 +1,33 @@
 import fs from "node:fs";
 import path from "node:path";
+
+import type { Ctx } from "./type";
 import { transformSchema } from "./transformSchema";
+import { lintSchema } from "./lintSchema";
+import { setCtx } from "./ctx";
+
+
 
 export const execute = (file: string, options: any) => {
     // TODO: ファイルの特定。なければエラーとして返す
     const CWD = new URL(`file://${process.cwd()}/`);
     const filePath = new URL(file, CWD);
-    const input = fs.readFileSync(filePath, 'utf8');
+
+    const ctx = setCtx({
+        pathToSchema: filePath.toString(),
+        options: options
+    })
+
+
 
     // TODO: OpenAPiのスキーマかどうかをチェックする
+    const isValid = lintSchema(ctx)
 
     // TODO: 実際に処理する
-    transformSchema(input)
+    const isSuccess = transformSchema()
 
     // TODO: 結果を表示する
+    if(isSuccess) {
+        
+    }
 }
