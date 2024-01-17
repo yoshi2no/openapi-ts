@@ -25,7 +25,8 @@
   "dependencies": {
     "@redocly/openapi-core": "^1.6.0",
     "cac": "^6.7.14",
-    "picocolors": "^1.0.0"
+    "picocolors": "^1.0.0",
+    "typescript": "^5"
   },
   "devDependencies": {
     "@types/node": "^20.11.5",
