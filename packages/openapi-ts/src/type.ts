@@ -1,4 +1,4 @@
 export type Ctx = {
-    pathToSchema: string,
-    options: Record<string, any>
-}
+	pathToSchema: URL;
+	options: Record<string, any>;
+};
