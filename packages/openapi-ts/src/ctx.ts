@@ -1,4 +1,4 @@
-import type { Ctx } from "./type";
+import type { Ctx } from "./types";
 
 export const ctx: Ctx = {
 	pathToSchema: new URL("file://"),

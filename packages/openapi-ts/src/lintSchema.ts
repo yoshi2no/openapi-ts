@@ -1,4 +1,4 @@
-import type { Ctx } from "./type";
+import type { Ctx } from "./types";
 import { lint, createConfig } from "@redocly/openapi-core";
 import { printFailed } from "./console";
 
