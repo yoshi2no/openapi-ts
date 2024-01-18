@@ -1,7 +1,3 @@
-import fs from "node:fs";
-import path from "node:path";
-
-import type { Ctx } from "./types";
 import { transformSchema } from "./transformSchema";
 import { lintSchema } from "./lintSchema";
 import { setCtx } from "./ctx";

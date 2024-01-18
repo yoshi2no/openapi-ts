@@ -13,7 +13,7 @@ cli
 
 cli.help();
 
-const { version } = createRequire(import.meta.url)("../package.json");
+// const { version } = createRequire(import.meta.url)("../package.json");
 
-cli.version(`v${version}`);
+// cli.version(`v${version}`);
 cli.parse();
