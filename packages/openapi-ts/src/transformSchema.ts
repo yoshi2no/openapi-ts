@@ -1,11 +1,17 @@
 import { Project } from "ts-morph";
+import fs from "fs";
 
 import type { Ctx } from "./types";
 
-export const transformSchema = (ctx: Ctx): boolean => {
-	// const input = fs.readFileSync(ctx.pathToSchema, "utf8");
+import { makeDocumentFromString } from "@redocly/openapi-core";
 
-	// TODO: 型ファイルを生成する
+export const transformSchema = (ctx: Ctx): boolean => {
+	const input = fs.readFileSync(ctx.pathToSchema, "utf8");
+
+	const { parsed } = makeDocumentFromString(input, "");
+
+	// TODO: parsedから型ファイルを生成する
+	console.log(parsed, "parsed");
 
 	const CWD = new URL(`file://${process.cwd()}/`);
 	const outputFile = new URL(ctx.options.output, CWD);
