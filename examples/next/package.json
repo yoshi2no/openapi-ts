@@ -8,7 +8,7 @@
 		"start": "next start",
 		"lint": "next lint",
 		"generate:openapi-ts": "npx openapi-ts ./src/openapi/simple.yaml -o ./src/openapi/openapi-ts/simple.ts",
-		"generate:openapi-typescript": "npx openapi-typescript ./src/openapi/simple.yaml -o ./src/openapi/openapi-typescript/simple.ts"
+		"generate:openapi-typescript": "npx openapi-typescript ./src/openapi/petStore.yaml -o ./src/openapi/openapi-typescript/petStore.ts"
 	},
 	"dependencies": {
 		"next": "14.0.4",
