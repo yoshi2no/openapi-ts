@@ -1,1 +1,4 @@
-export type User = { id: string; name: string; age?: number; };
+export interface paths {
+	"/pets": string;
+	"/pets/{petId}": string;
+}

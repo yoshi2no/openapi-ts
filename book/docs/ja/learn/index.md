@@ -53,6 +53,20 @@ import ts, { InterfaceDeclaration, TypeLiteralNode } from "typescript";
 - SourceFile
 
 
+## スキーマをパースして扱えるようにする
+```
+  import { makeDocumentFromString } from "@redocly/openapi-core";
+	const { parsed } = makeDocumentFromString(input, "");
+```
+
+
+### オブジェクトの型を文字列で定義する
+オブジェクトの型は文字列で定義する必要があるため、parserを作成して処理します
+
+- pathsParser
+- componentsParser
+
+
 ## お世話になった資料
 - [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API)
   - [#creating-and-printing-a-typescript-ast](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#creating-and-printing-a-typescript-ast)

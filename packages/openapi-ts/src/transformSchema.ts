@@ -10,9 +10,6 @@ export const transformSchema = (ctx: Ctx): boolean => {
 
 	const { parsed } = makeDocumentFromString(input, "");
 
-	// TODO: parsedから型ファイルを生成する
-	console.log(parsed, "parsed");
-
 	const CWD = new URL(`file://${process.cwd()}/`);
 	const outputFile = new URL(ctx.options.output, CWD);
 	const project = new Project();
@@ -20,11 +17,53 @@ export const transformSchema = (ctx: Ctx): boolean => {
 		overwrite: true,
 	});
 
-	sourceFile.addTypeAlias({
-		name: "User",
-		isExported: true,
-		type: "{ id: string; name: string; age?: number; }",
-	});
+	for (const [key, value] of Object.entries(
+		parsed as Record<string, unknown>,
+	)) {
+		switch (key) {
+			case "paths": {
+				const properties = [];
+				for (const [path, pathValue] of Object.entries(
+					value as Record<string, unknown>,
+				)) {
+					console.log(pathValue);
+					for (const [method, methodValue] of Object.entries(
+						pathValue as Record<string, unknown>,
+					)) {
+					}
+					properties.push({
+						name: `"${path}"`,
+						type: "string",
+					});
+				}
+				sourceFile.addInterface({
+					name: key,
+					isExported: true,
+					properties,
+				});
+				break;
+			}
+			case "components": {
+				const properties = [];
+				for (const [path, pathValue] of Object.entries(
+					value as Record<string, unknown>,
+				)) {
+					// console.log("path", path);
+					// console.log("pathValue", pathValue);
+					// properties.push({
+					// 	name: `"${path}"`,
+					// 	type: "string",
+					// });
+				}
+				// sourceFile.addInterface({
+				// 	name: key,
+				// 	isExported: true,
+				// 	properties,
+				// });
+				break;
+			}
+		}
+	}
 	sourceFile.saveSync();
 
 	return true;
