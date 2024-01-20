@@ -1,5 +1,8 @@
 # Learn
 
+## このチュートリアルすること
+## 前提条件
+
 ## 使用するツールとその紹介
 
 - [cac](https://github.com/cacjs/cac)
@@ -8,6 +11,7 @@
 - [picocolors](https://github.com/alexeyraspopov/picocolors)
 - [Next.js](https://nextjs.org/)
 - [@redocly/openapi-core](https://github.com/Redocly/redocly-cli/tree/main/packages/core)
+- [ts-morph](https://ts-morph.com/)
 
 ## cac でコマンドラインから引数を受け取る
 
@@ -70,3 +74,9 @@ import ts, { InterfaceDeclaration, TypeLiteralNode } from "typescript";
 ## お世話になった資料
 - [Using the Compiler API](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API)
   - [#creating-and-printing-a-typescript-ast](https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#creating-and-printing-a-typescript-ast)
+
+- [OpenAPI Specification](https://swagger.io/specification/)
+
+- [TypeScript AST Viewer](https://ts-ast-viewer.com/#)
+
+## Roadmap
