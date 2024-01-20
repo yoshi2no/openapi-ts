@@ -7,19 +7,21 @@ const defaultPathsList = {
 		path: "path?: never;",
 		cookie: "cookie?: never;",
 	},
-	get: "get?: never;",
-	put: "put?: never;",
-	post: "post?: never;",
-	delete: "delete?: never;",
-	options: "options?: never;",
-	head: "head?: never;",
-	patch: "patch?: never;",
-	trace: "trace?: never;",
+	methods: {
+		get: "get?: never;",
+		put: "put?: never;",
+		post: "post?: never;",
+		delete: "delete?: never;",
+		options: "options?: never;",
+		head: "head?: never;",
+		patch: "patch?: never;",
+		trace: "trace?: never;",
+	},
 };
 
 export const pathsParser = (paths: PathsObject) => {
 	const start = "{";
-	const end = "}";
+	const end = "};";
 	const properties = [];
 	for (const [path, pathValue] of Object.entries(paths)) {
 		let pathsString = start;
@@ -36,12 +38,9 @@ export const pathsParser = (paths: PathsObject) => {
 		}
 
 		// TODO: 各メソッドのチェック
-		// for (const [method, methodValue] of Object.entries(pathValue)) {
-		// 	if (method in defaultPathsList) {
-		// 		// defaultPathsListからメソッドのデフォルト値を取得
-		// 		pathsString += method + ": " + defaultPathsList[method] + ",";
-		// 	}
-		// }
+		for (const [key, value] of Object.entries(defaultPathsList.methods)) {
+			pathsString += value;
+		}
 
 		pathsString += "}";
 
