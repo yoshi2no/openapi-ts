@@ -1,5 +1,5 @@
 import { transformSchema } from "./transformSchema";
-import { lintSchema } from "./lintSchema";
+import { validateSchema } from "./validateSchema";
 import { setCtx } from "./ctx";
 import { printResult } from "./printResult";
 
@@ -14,7 +14,7 @@ export const execute = (file: string, options: any) => {
 	});
 
 	// TODO: OpenAPiのスキーマかどうかをチェックする
-	const isValid = lintSchema(ctx);
+	const isValid = validateSchema(ctx);
 
 	// TODO: 実際に処理する
 	const isSuccess = transformSchema(ctx);
