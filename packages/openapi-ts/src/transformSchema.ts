@@ -5,10 +5,12 @@ import type { Ctx } from "./types";
 
 import { makeDocumentFromString } from "@redocly/openapi-core";
 
+import { pathsParser } from "./parsers/paths";
+
 export const transformSchema = (ctx: Ctx): boolean => {
 	const input = fs.readFileSync(ctx.pathToSchema, "utf8");
 
-	const { parsed } = makeDocumentFromString(input, "");
+	const { parsed } = makeDocumentFromString(input, "") as any;
 
 	const CWD = new URL(`file://${process.cwd()}/`);
 	const outputFile = new URL(ctx.options.output, CWD);
@@ -17,25 +19,10 @@ export const transformSchema = (ctx: Ctx): boolean => {
 		overwrite: true,
 	});
 
-	for (const [key, value] of Object.entries(
-		parsed as Record<string, unknown>,
-	)) {
+	for (const [key, value] of Object.entries(parsed)) {
 		switch (key) {
 			case "paths": {
-				const properties = [];
-				for (const [path, pathValue] of Object.entries(
-					value as Record<string, unknown>,
-				)) {
-					console.log(pathValue);
-					for (const [method, methodValue] of Object.entries(
-						pathValue as Record<string, unknown>,
-					)) {
-					}
-					properties.push({
-						name: `"${path}"`,
-						type: "string",
-					});
-				}
+				const properties = pathsParser(value as any);
 				sourceFile.addInterface({
 					name: key,
 					isExported: true,

@@ -1,4 +1,8 @@
 export interface paths {
-	"/pets": string;
-	"/pets/{petId}": string;
+	"/pets": {
+		parameters: { query?: never; header?: never; path?: never; cookie?: never };
+	};
+	"/pets/{petId}": {
+		parameters: { query?: never; header?: never; path?: never; cookie?: never };
+	};
 }
