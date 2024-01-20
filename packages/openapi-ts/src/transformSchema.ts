@@ -58,6 +58,20 @@ export const transformSchema = (ctx: Ctx): boolean => {
 			}
 		}
 	}
+
+	sourceFile.addTypeAliases([
+		{
+			name: "webhooks",
+			isExported: true,
+			type: "Record<string, never>",
+		},
+		{
+			name: "$defs",
+			isExported: true,
+			type: "Record<string, never>",
+		},
+	]);
+
 	sourceFile.saveSync();
 
 	return true;

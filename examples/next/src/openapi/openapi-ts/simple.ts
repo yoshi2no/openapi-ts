@@ -40,3 +40,6 @@ export interface operations {
 		responses?: never;
 	};
 }
+
+export type webhooks = Record<string, never>;
+export type $defs = Record<string, never>;
