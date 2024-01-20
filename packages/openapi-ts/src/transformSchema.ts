@@ -22,11 +22,18 @@ export const transformSchema = (ctx: Ctx): boolean => {
 	for (const [key, value] of Object.entries(parsed)) {
 		switch (key) {
 			case "paths": {
-				const properties = pathsParser(value as any);
+				const { pathsProperties, operationsProperties } = pathsParser(
+					value as any,
+				);
 				sourceFile.addInterface({
 					name: key,
 					isExported: true,
-					properties,
+					properties: pathsProperties,
+				});
+				sourceFile.addInterface({
+					name: "operations",
+					isExported: true,
+					properties: operationsProperties,
 				});
 				break;
 			}

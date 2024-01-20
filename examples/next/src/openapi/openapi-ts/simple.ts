@@ -22,3 +22,21 @@ export interface paths {
 		trace?: never;
 	};
 }
+
+export interface operations {
+	listPets: {
+		parameters: { query?: never; header?: never; path?: never; cookie?: never };
+		requestBody?: never;
+		responses?: never;
+	};
+	createPets: {
+		parameters: { query?: never; header?: never; path?: never; cookie?: never };
+		requestBody?: never;
+		responses?: never;
+	};
+	showPetById: {
+		parameters: { query?: never; header?: never; path?: never; cookie?: never };
+		requestBody?: never;
+		responses?: never;
+	};
+}

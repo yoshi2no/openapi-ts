@@ -1,3 +1,4 @@
+import { operations } from "./../../../../examples/next/src/openapi/openapi-typescript/simple";
 import type { PathsObject } from "../types/schema";
 
 const defaultPathsList = {
@@ -21,8 +22,9 @@ const defaultPathsList = {
 
 export const pathsParser = (paths: PathsObject) => {
 	const start = "{";
-	const end = "};";
-	const properties = [];
+	const end = "}";
+	const pathsProperties = [];
+	const operationsProperties = [];
 	for (const [path, pathValue] of Object.entries(paths)) {
 		let pathsString = start;
 
@@ -34,7 +36,7 @@ export const pathsParser = (paths: PathsObject) => {
 			for (const [key, value] of Object.entries(defaultPathsList.parameters)) {
 				pathsString += value;
 			}
-			pathsString += end;
+			pathsString += `${end};`;
 		}
 
 		// TODO: 各メソッドのチェック
@@ -42,12 +44,45 @@ export const pathsParser = (paths: PathsObject) => {
 			pathsString += value;
 		}
 
-		pathsString += "}";
+		pathsString += end;
 
-		properties.push({
+		// TODO:operationsを定義する
+		for (const [key, value] of Object.entries(pathValue)) {
+			let operationsString = start;
+			operationsString = "{";
+
+			// parameters
+			operationsString += "parameters: {";
+			for (const [key, value] of Object.entries(defaultPathsList.parameters)) {
+				operationsString += value;
+			}
+			operationsString += `${end};`;
+
+			// requestBody
+			// operationsString += "requestBody: {";
+			// operationsString += `${end};`;
+			operationsString += "requestBody?: never;"
+
+			// responses
+			// operationsString += "responses: {";
+			// operationsString += `${end};`;
+			operationsString += "responses?: never;"
+
+			operationsString += end;
+
+			operationsProperties.push({
+				name: `"${value.operationId}"`,
+				type: operationsString,
+			});
+		}
+
+		pathsProperties.push({
 			name: `"${path}"`,
 			type: pathsString,
 		});
 	}
-	return properties;
+	return {
+		pathsProperties,
+		operationsProperties,
+	};
 };
