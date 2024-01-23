@@ -1,4 +1,3 @@
-import { operations } from "./../../../../examples/next/src/openapi/openapi-typescript/simple";
 import type { PathsObject } from "../types/schema";
 
 const defaultPathsList = {
@@ -61,12 +60,12 @@ export const pathsParser = (paths: PathsObject) => {
 			// requestBody
 			// operationsString += "requestBody: {";
 			// operationsString += `${end};`;
-			operationsString += "requestBody?: never;"
+			operationsString += "requestBody?: never;";
 
 			// responses
 			// operationsString += "responses: {";
 			// operationsString += `${end};`;
-			operationsString += "responses?: never;"
+			operationsString += "responses?: never;";
 
 			operationsString += end;
 

@@ -1,3 +1,4 @@
+import { createTypeLiteral } from "./helpers/createTypeLiteral";
 import { Project } from "ts-morph";
 import fs from "fs";
 
@@ -5,7 +6,7 @@ import type { Ctx } from "./types";
 
 import { makeDocumentFromString } from "@redocly/openapi-core";
 
-import { pathsParser } from "./parsers/paths";
+import { pathsParser, componentsParser } from "./parsers";
 
 export const transformSchema = (ctx: Ctx): boolean => {
 	const input = fs.readFileSync(ctx.pathToSchema, "utf8");
@@ -38,22 +39,24 @@ export const transformSchema = (ctx: Ctx): boolean => {
 				break;
 			}
 			case "components": {
-				const properties = [];
-				for (const [path, pathValue] of Object.entries(
-					value as Record<string, unknown>,
-				)) {
-					// console.log("path", path);
-					// console.log("pathValue", pathValue);
-					// properties.push({
-					// 	name: `"${path}"`,
-					// 	type: "string",
-					// });
-				}
-				// sourceFile.addInterface({
-				// 	name: key,
-				// 	isExported: true,
-				// 	properties,
-				// });
+				const properties = componentsParser(value as any);
+				sourceFile.addInterface({
+					name: "components",
+					isExported: true,
+					properties: [
+						createTypeLiteral("components", { name: "tag", type: "string" }),
+						createTypeLiteral("components2", {
+							name: "name",
+							type: {
+								id: "string",
+								name: {
+									miyoji: "string",
+									namae: "string",
+								},
+							},
+						}),
+					],
+				});
 				break;
 			}
 		}

@@ -41,5 +41,18 @@ export interface operations {
 	};
 }
 
+export interface components {
+	components: {
+		tag: string;
+	};
+	components2: {
+		id: string;
+		name: {
+			miyoji: string;
+			namae: string;
+		};
+	};
+}
+
 export type webhooks = Record<string, never>;
 export type $defs = Record<string, never>;
