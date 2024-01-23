@@ -1,20 +1,57 @@
 # yoshi2no/openapi-ts
 
-Tools for consuming OpenAPI schemas in TypeScript.
+[!IMPORTANT]
+This repository is created for personal learning and development purposes. It's not intended for production use.
 
 ## 📦 Packages
 
 <a href="./packages/openapi-ts"><br />
-Generate TypeScript types from static OpenAPI schemas
+😺 openapi-ts<br />
 </a>
+Generates TypeScript types from static OpenAPI schemas
 
 <a href="./packages/openapi-fetch"><br />
-Ultra-fast fetching for TypeScript generated automatically from your OpenAPI schema.
+😺 openapi-fetch<br />
 </a>
+🚧
 
-## Features
 
-- ✅ Supports OpenAPI 3.0 and 3.1 (including advanced features like <a href="https://spec.openapis.org/oas/v3.1.0#discriminator-object" target="_blank" rel="noopener noreferrer">discriminators</a>)
-- ✅ Generate **runtime-free types** that outperform old-school codegen
-- ✅ Load schemas from YAML or JSON, locally or remotely
-- ✅ Native Node.js code is fast and generates types within milliseconds
+## ✅ Status
+
+### Basic Features
+
+✅ means implemented
+
+| feature         | impl | book |
+| --------------- | ---- | ---- |
+| Local schema             |   |   |
+| Remote schema             |   |   |
+| Multiple schemas             |   |   |
+
+
+### Config
+| feature         | impl | book |
+| --------------- | ---- | ---- |
+| Redoc config             |   |   |
+
+### CLI Options
+| feature         | impl | book |
+| --------------- | ---- | ---- |
+| --output(-o) [location]            |   |   |
+| --help           |   |   |
+| --version
+| --redoc            |   |   |
+| --additional-properties            |   |   |
+| --alphabetize            |   |   |
+| --array-length            |   |   |
+| --default-non-nullable            |   |   |
+| --empty-objects-unknown            |   |   |
+| --enum            |   |   |
+| --exclude-deprecated            |   |   |
+| --export-type            |   |   |
+| --immutable            |   |   |
+| --path-params-as-types            |   |   |
+
+## 🙏 Acknowledgements
+
+This library is inspired by and based on the concepts learned from the [openapi-typescript](https://github.com/drwpow/openapi-typescript) repository. I extend my gratitude to the contributors of `openapi-typescript` for their invaluable work, which has been a significant reference in the development of this project.
