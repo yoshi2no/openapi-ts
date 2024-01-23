@@ -1,7 +1,8 @@
 # yoshi2no/openapi-ts
 
-[!IMPORTANT]
-This repository is created for personal learning and development purposes. It's not intended for production use.
+> [!IMPORTANT]
+>This repository is created for personal learning and development purposes. It's not intended for production use.
+
 
 ## 📦 Packages
 
