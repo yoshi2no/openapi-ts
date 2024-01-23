@@ -24,7 +24,7 @@ Generates TypeScript types from static OpenAPI schemas
 ### Basic Features
 
 | feature         | impl | book |
-| --------------- | ---- | ---- |
+| :---: | :---: | :---: |
 | Local schema             |   |   |
 | Remote schema             |   |   |
 | Multiple schemas             |   |   |
@@ -32,12 +32,12 @@ Generates TypeScript types from static OpenAPI schemas
 
 ### Config
 | feature         | impl | book |
-| --------------- | ---- | ---- |
+| :---: | :---: | :---: |
 | Redoc config             |   |   |
 
 ### CLI Options
 | feature         | impl | book |
-| --------------- | ---- | ---- |
+| :---: | :---: | :---: |
 | --output(-o) [location]            |   |   |
 | --help           |   |   |
 | --version
