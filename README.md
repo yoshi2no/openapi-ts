@@ -19,9 +19,9 @@ Generates TypeScript types from static OpenAPI schemas
 
 ## ✅ Status
 
-### Basic Features
-
 ✅ means implemented
+
+### Basic Features
 
 | feature         | impl | book |
 | --------------- | ---- | ---- |
