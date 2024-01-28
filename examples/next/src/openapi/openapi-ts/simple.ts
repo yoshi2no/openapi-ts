@@ -42,15 +42,17 @@ export interface operations {
 }
 
 export interface components {
-	components: {
+	schemas: {
 		tag: string;
 	};
-	components2: {
-		id: string;
-		name: {
-			miyoji: string;
-			namae: string;
-		};
+	responses: {
+		tag: string;
+	};
+	parameters: {
+		tag: string;
+	};
+	requestBodies: {
+		tag: string;
 	};
 }
 

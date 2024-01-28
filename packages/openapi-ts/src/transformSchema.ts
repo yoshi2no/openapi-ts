@@ -6,7 +6,7 @@ import type { Ctx } from "./types";
 
 import { makeDocumentFromString } from "@redocly/openapi-core";
 
-import { pathsParser, componentsParser } from "./parsers";
+import { parsers } from "./parsers";
 
 export const transformSchema = (ctx: Ctx): boolean => {
 	const input = fs.readFileSync(ctx.pathToSchema, "utf8");
@@ -23,7 +23,7 @@ export const transformSchema = (ctx: Ctx): boolean => {
 	for (const [key, value] of Object.entries(parsed)) {
 		switch (key) {
 			case "paths": {
-				const { pathsProperties, operationsProperties } = pathsParser(
+				const { pathsProperties, operationsProperties } = parsers.paths(
 					value as any,
 				);
 				sourceFile.addInterface({
@@ -39,23 +39,11 @@ export const transformSchema = (ctx: Ctx): boolean => {
 				break;
 			}
 			case "components": {
-				const properties = componentsParser(value as any);
+				const properties = parsers.components(value as any);
 				sourceFile.addInterface({
 					name: "components",
 					isExported: true,
-					properties: [
-						createTypeLiteral("components", { name: "tag", type: "string" }),
-						createTypeLiteral("components2", {
-							name: "name",
-							type: {
-								id: "string",
-								name: {
-									miyoji: "string",
-									namae: "string",
-								},
-							},
-						}),
-					],
+					properties,
 				});
 				break;
 			}
